@@ -1,8 +1,10 @@
+import os
 from flask import Flask, render_template, request
 import sqlite3 as sql
 import pandas as pd
 import time
 import random
+
 app = Flask(__name__,template_folder="static")
 
 #########################################################################################################################
@@ -70,6 +72,6 @@ def randomFunc():
         count = count + 1
         magnitude.append("Place:" + row[0])
     return render_template('index.html', countr2=count, resu2=magnitude, totaltimer=time_diff)
-
-if __name__ == '__main__':
-   app.run(debug = True)
+port = os.getenv('VCAP_APP_PORT', '5000')
+if __name__ == "__main__":
+	app.run(debug = True)
