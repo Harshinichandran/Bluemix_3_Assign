@@ -1,10 +1,24 @@
 import os
+# try:
+#   from SimpleHTTPServer import SimpleHTTPRequestHandler as Handler
+#   from SocketServer import TCPServer as Server
+# except ImportError:
+#   from http.server import SimpleHTTPRequestHandler as Handler
+#   from http.server import HTTPServer as Server
 from flask import Flask, render_template, request
 import sqlite3 as sql
 import pandas as pd
 import time
 import random
 
+
+
+# httpd = Server(("", PORT), Handler)
+# try:
+#   print("Start serving at port %i" % PORT)
+#   httpd.serve_forever()
+# except KeyboardInterrupt:
+#   pass
 app = Flask(__name__,template_folder="static")
 
 #########################################################################################################################
@@ -72,6 +86,15 @@ def randomFunc():
         count = count + 1
         magnitude.append("Place:" + row[0])
     return render_template('index.html', countr2=count, resu2=magnitude, totaltimer=time_diff)
-port = os.getenv('VCAP_APP_PORT', '5000')
+
+# httpd = Server(("", PORT), Handler)
+# try:
+#   print("Start serving at port %i" % PORT)
+#   httpd.serve_forever()
+# except KeyboardInterrupt:
+#   pass
+PORT = int(os.getenv('PORT', 5000))
 if __name__ == "__main__":
-	app.run(debug = True)
+    app.run(host='127.0.0.1', port=int(PORT))
+	# app.run(debug = True)
+# httpd.server_close()
