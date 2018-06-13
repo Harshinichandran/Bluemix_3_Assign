@@ -87,14 +87,9 @@ def randomFunc():
         magnitude.append("Place:" + row[0])
     return render_template('index.html', countr2=count, resu2=magnitude, totaltimer=time_diff)
 
-# httpd = Server(("", PORT), Handler)
-# try:
-#   print("Start serving at port %i" % PORT)
-#   httpd.serve_forever()
-# except KeyboardInterrupt:
-#   pass
-PORT = int(os.getenv('PORT', 5000))
+
+PORT = int(os.getenv('PORT', '8080'))
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=int(PORT))
+    app.run(host='0.0.0.0', port=int(PORT))
 	# app.run(debug = True)
 # httpd.server_close()
