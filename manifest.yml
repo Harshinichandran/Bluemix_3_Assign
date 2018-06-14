@@ -2,7 +2,7 @@ applications:
   - path: .
     name: Memcache
     environment_json: {}
-    memory: 128M
+    memory: 256M
     instances: 1
     disk_quota: 1024M
     services: []
