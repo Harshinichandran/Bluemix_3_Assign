@@ -49,29 +49,29 @@ def Magnitude():
     return render_template('index.html', counter=count, rows=rows,timediff=time_diff)
 
 #=======================================================================================================================#
-@app.route('/random', methods=['POST'])
-def randomFunc():
-    magnitude = []
-    count = request.form['count']
-    # magnituderange = float(magnituderange)
-    con = sql.connect("Assign3.db")
-    start_time = time.time()
-    con.row_factory = sql.Row
-    cur = con.cursor()
-    for i in range(1, int(count) + 1):
-        rand = random.randrange(0, 100)
-        mag = int(rand)
-        cur.execute('SELECT place FROM Earthquake3 where depth>= ?',(mag,))
-        magdata = cur.fetchall()
-    end_time = time.time()
-    time_diff = end_time - start_time
-
-
-    count = 0
-    for row in magdata:
-        count = count + 1
-        magnitude.append("Place:" + row[0])
-    return render_template('index.html', countr2=count, resu2=magnitude, totaltimer=time_diff)
+# @app.route('/random', methods=['POST'])
+# def randomFunc():
+#     magnitude = []
+#     count = request.form['count']
+#     # magnituderange = float(magnituderange)
+#     con = sql.connect("Assign3.db")
+#     start_time = time.time()
+#     con.row_factory = sql.Row
+#     cur = con.cursor()
+#     for i in range(1, int(count) + 1):
+#         rand = random.randrange(0, 100)
+#         mag = int(rand)
+#         cur.execute('SELECT place FROM Earthquake3 where depth>= ?',(mag,))
+#         magdata = cur.fetchall()
+#     end_time = time.time()
+#     time_diff = end_time - start_time
+#
+#
+#     count = 0
+#     for row in magdata:
+#         count = count + 1
+#         magnitude.append("Place:" + row[0])
+#     return render_template('index.html', countr2=count, resu2=magnitude, totaltimer=time_diff)
 
 #=======================================================================================================================#
 @app.route('/rdis', methods=['POST'])
