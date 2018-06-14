@@ -81,7 +81,7 @@ def rdis():
 #========================================================================================================================#
 
 
-PORT = int(os.getenv('PORT', '8080'))
+PORT = int(os.getenv('PORT','6010'))
 if __name__ == '__main__':
     app.run(host='localhost', port=int(PORT))
 	# app.run(debug = True)
