@@ -2,9 +2,9 @@ applications:
   - path: .
     name: Memcache
     environment_json: {}
-    memory: 256M
+    memory: 1GB
     instances: 1
     disk_quota: 1024M
     services: []
-    health-check-http-endpoint: /info
-    health-check-type: http
+    #OPTIMIZE_MEMORY: true
+    NODE_OPTIONS: --max-old-space-size=96

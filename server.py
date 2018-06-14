@@ -1,5 +1,4 @@
 import os
-
 from flask import Flask, render_template, request
 import sqlite3 as sql
 import pandas as pd
@@ -33,8 +32,9 @@ def createtable():
    print(csvf)
    return render_template('index.html',msg=msg,timediff=time_diff)
 
-#=======================================================================================================================#
 
+#=======================================================================================================================#
+#
 @app.route('/Magnitude', methods=['POST'])
 def Magnitude():
 
@@ -58,8 +58,9 @@ def Magnitude():
 
     return render_template('index.html', rows=result)
 
-
-#=======================================================================================================================#
+#
+#
+# #=======================================================================================================================#
 @app.route('/random', methods=['POST'])
 def randomFunc():
     magnitude = []
@@ -92,8 +93,6 @@ def rdis():
 #========================================================================================================================#
 
 
-PORT = int(os.getenv('PORT', '5000'))
-if __name__ == "__main__":
-    app.run(debug = True)
-	# app.run(debug = True)
-# httpd.server_close()
+PORT = int(os.getenv('PORT', '8080'))
+if __name__ == '__main__':
+    app.run(host='localhost', port=int(PORT))
