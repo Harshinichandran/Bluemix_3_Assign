@@ -82,7 +82,7 @@ def rdis():
 
 
 PORT = int(os.getenv('PORT', '6010'))
-if __name__ == "__main__":
-    app.run(debug = True)
+if __name__ == '__main__':
+    app.run(debug=True, port=int(PORT))
 	# app.run(debug = True)
 # httpd.server_close()
