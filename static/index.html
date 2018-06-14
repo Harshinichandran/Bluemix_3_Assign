@@ -21,11 +21,11 @@
 ==============================================================================================================================
      <p>Search for details based on region</p>
        <form action="{{url_for('Magnitude')}}" method="POST" enctype="multipart/form-data">
-         <input type="text" value="" name="Magnitude" placeholder="Enter Region">
+         <input type="text" value="" name="magnitude" placeholder="Enter Region">
          <input type="submit" value="Find">
        </form>
-		 <p> Number </p>
-		 <p>Time Taken :{{timediff}}</p>
+		 <!--<p> Number {{value}} </p>-->
+		 <!--<p>Time Taken :{{timediff}}</p>-->
        <table border = 1>
          <thead>
               <td>Date</td>
@@ -37,27 +37,46 @@
          <tr>
             <td>{{row["Date"]}}</td>
             <td>{{row["mag"]}}</td>
+         </tr>
+		   {% endfor %}
+         </table>
+        <table border = 1>
+         <thead>
 
-		 </tr>
+            <td>Magnitude</td>
+
+         </thead>
+         {% for row in count %}
+
+         <tr>
+
+            <td>{{row["mag"]}}</td>
+         </tr>
 		   {% endfor %}
          </table>
 
 
-==============================================================================================================================
-    <!--<form action="/random" method="post" enctype="multipart/form-data">-->
-        <!--<input type="text" name="count" placeholder="Enter count">-->
-        <!--<input type="submit" value="Random Queries">-->
-    <!--</form>-->
-    <!--<p><b>Time taken: </b> {{totaltimer}} </p>-->
-    <!--<table>-->
-    <!--<b>Row count: </b>{{ countr2 }}-->
-    <!--{% for col in resu2 %}-->
-    <!--<tr>-->
-             <!--<td>{{ col }}</td>-->
-    <!--</tr>-->
-     <!--{% endfor %}-->
-    <!--</table>-->
 
+==============================================================================================================================
+    <form action="/random" method="post" enctype="multipart/form-data">
+        <input type="text" name="count" placeholder="Enter count">
+        <input type="submit" value="Random Queries">
+    </form>
+    <p><b>Time taken: </b> {{time_diff}} </p>
+    <table>
+    <b>Row count: </b>{{ counter2 }}
+    {% for col in result2 %}
+    <tr>
+             <td>{{ col }}</td>
+    </tr>
+     {% endfor %}
+    </table>
+
+=======================================================================================================================
+    <form action="/rdis" method="post" enctype="multipart/form-data">
+        <input type="text" name="limit" placeholder="Enter count">
+        <input type="submit" value="Rdis">
+    </form>
 
 
 	</body>
