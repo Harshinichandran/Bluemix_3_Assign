@@ -6,3 +6,5 @@ applications:
     instances: 1
     disk_quota: 1024M
     services: []
+    health-check-http-endpoint: /info
+    health-check-type: http
